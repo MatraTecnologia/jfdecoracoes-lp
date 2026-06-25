@@ -1,0 +1,32 @@
+# Dependências e build (refeitos dentro da imagem)
+node_modules
+.next
+out
+build
+
+# Git e meta
+.git
+.gitignore
+
+# Ambiente / segredos (defina no painel do EasyPanel)
+.env
+.env.*
+!.env.example
+
+# Logs e caches
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+.DS_Store
+
+# Ferramentas / docs que não afetam o runtime
+.claude
+.vscode
+README.md
+DESIGN.md
+IMAGES.md
+
+# O próprio Docker
+Dockerfile
+.dockerignore
