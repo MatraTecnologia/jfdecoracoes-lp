@@ -3,6 +3,7 @@ import { Oswald, Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig, tokens } from "@/lib/site-config";
 import { content } from "@/lib/content";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -129,7 +130,7 @@ export default function RootLayout({
             __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}
         />
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
