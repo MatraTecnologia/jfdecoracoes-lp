@@ -43,9 +43,15 @@ export const seamDraw: Variants = {
    Kinetic typography (animação por letra) — títulos/eyebrows
 --------------------------------------------------------------------------- */
 
-/** Container das letras: escalona cada caractere ao entrar/sair. */
+/**
+ * Container das letras: escalona cada caractere ao entrar/sair.
+ * Entrada: esquerda → direita. Saída: direita → esquerda (staggerDirection -1),
+ * para o texto "desmontar" na ordem inversa em vez de reaparecer torto.
+ */
 export const letterContainer: Variants = {
-  hidden: {},
+  hidden: {
+    transition: { staggerChildren: 0.028, staggerDirection: -1 },
+  },
   visible: {
     transition: { staggerChildren: 0.028, delayChildren: 0.02 },
   },
@@ -53,7 +59,12 @@ export const letterContainer: Variants = {
 
 /** Cada letra: sobe e "vira" para o lugar (flip sutil em rotateX). */
 export const letter: Variants = {
-  hidden: { opacity: 0, y: "0.55em", rotateX: -85 },
+  hidden: {
+    opacity: 0,
+    y: "0.55em",
+    rotateX: -85,
+    transition: { duration: 0.35, ease: EASE },
+  },
   visible: {
     opacity: 1,
     y: "0em",
