@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -33,23 +34,31 @@ export const Hero = () => {
       id="top"
       className="relative flex min-h-screen items-center overflow-hidden bg-brand-night"
     >
-      {/* Fundo: placeholder escuro com gradiente + parallax */}
+      {/* Fundo: foto real do ambiente + tint navy + parallax */}
       <motion.div
         aria-hidden
         style={parallax ? { y } : undefined}
-        className="absolute inset-0 [background:radial-gradient(120%_120%_at_75%_15%,#163e7a_0%,#0d3e85_38%,#0b2a5c_72%,#081f47_100%)]"
+        className="absolute inset-0"
       >
+        <Image
+          src="/hero.webp"
+          alt=""
+          fill
+          loading="eager"
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Tint da marca para coesão e contraste */}
+        <span className="absolute inset-0 [background:radial-gradient(120%_120%_at_75%_15%,rgba(22,62,122,0.55)_0%,rgba(13,62,133,0.6)_38%,rgba(11,42,92,0.78)_72%,rgba(8,31,71,0.9)_100%)]" />
         {/* textura sutil de linhas (esquadro drywall) */}
-        <span className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:64px_64px]" />
-        <span className="caption absolute bottom-6 right-6 text-white/25">
-          {content.states.imagePlaceholder}
-        </span>
+        <span className="absolute inset-0 opacity-[0.05] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:64px_64px]" />
       </motion.div>
 
       {/* Vinheta para contraste do texto */}
       <span
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-brand-night/85 via-brand-night/45 to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-brand-night/90 via-brand-night/55 to-brand-night/20"
       />
 
       <div className="shell relative z-10 w-full pt-24 pb-16">

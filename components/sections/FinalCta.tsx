@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -31,8 +32,17 @@ export const FinalCta = () => {
       <motion.div
         aria-hidden
         style={parallax ? { y } : undefined}
-        className="absolute inset-0 [background:radial-gradient(120%_120%_at_30%_20%,#163e7a_0%,#0d3e85_42%,#0b2a5c_78%,#081f47_100%)]"
+        className="absolute inset-0"
       >
+        <Image
+          src="/cta.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Tint navy escuro: mantém clima premium e legibilidade do texto branco */}
+        <span className="absolute inset-0 [background:radial-gradient(120%_120%_at_30%_20%,rgba(22,62,122,0.82)_0%,rgba(13,62,133,0.86)_42%,rgba(11,42,92,0.92)_78%,rgba(8,31,71,0.96)_100%)]" />
         <span className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:64px_64px]" />
       </motion.div>
 

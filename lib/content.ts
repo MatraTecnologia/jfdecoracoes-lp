@@ -64,23 +64,31 @@ export const content = {
     items: [
       {
         caption: "Residencial · Forro + Sanca",
-        alt: "Projeto residencial com forro e sanca em drywall",
+        alt: "Projeto residencial com forro e sanca de luz embutida em drywall",
         ratio: "aspect-[4/5]",
+        src: "/portfolio-1.webp",
+        position: "object-center",
       },
       {
         caption: "Corporativo · Divisórias",
-        alt: "Projeto corporativo com divisórias em drywall",
+        alt: "Projeto corporativo com divisórias de drywall e vidro",
         ratio: "aspect-[3/2]",
+        src: "/portfolio-2.webp",
+        position: "object-center",
       },
       {
         caption: "Residencial · Iluminação Embutida",
-        alt: "Sala com iluminação embutida em sanca de drywall",
+        alt: "Corredor com iluminação linear embutida em sanca de drywall",
         ratio: "aspect-[3/4]",
+        src: "/portfolio-3.webp",
+        position: "object-center",
       },
       {
-        caption: "Corporativo · Forro Acústico",
-        alt: "Escritório com forro acústico em drywall",
+        caption: "Corporativo · Forro + Acabamento",
+        alt: "Interior comercial de alto padrão com forro em drywall",
         ratio: "aspect-[3/2]",
+        src: "/portfolio-4.webp",
+        position: "object-center",
       },
     ],
   },
@@ -89,11 +97,13 @@ export const content = {
     eyebrow: "Transformação",
     title: "De espaço cru a ambiente pronto.",
     microcopy: "Arraste para ver a transformação.",
-    caption: "Mesmo ângulo. Mesma luz. Outro padrão.",
+    caption: "Da estrutura crua ao acabamento pronto.",
     beforeLabel: "Antes",
     afterLabel: "Depois",
-    altBefore: "Ambiente antes da execução, em estado cru",
+    altBefore: "Ambiente antes da execução, com estrutura metálica de construção a seco",
     altAfter: "Ambiente depois da execução, com acabamento Fortunato",
+    srcBefore: "/antes.webp",
+    srcAfter: "/depois.webp",
   },
 
   services: {
@@ -142,7 +152,8 @@ export const content = {
   differentials: {
     eyebrow: "O padrão Fortunato",
     title: "Por que contratar quem leva acabamento a sério.",
-    altImage: "Detalhe de acabamento de junta invisível em parede de drywall",
+    altImage: "Detalhe de sanca de luz com acabamento impecável em drywall",
+    srcImage: "/diferenciais.webp",
     items: [
       "Planejamento antes de qualquer corte de placa.",
       "Equipe própria especializada em obra fina.",

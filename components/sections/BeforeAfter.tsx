@@ -3,7 +3,7 @@
 import { useCallback, useRef, useState } from "react";
 import { MoveHorizontal } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { CoverImage } from "@/components/ui/CoverImage";
 import { content } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -62,9 +62,11 @@ export const BeforeAfter = () => {
           >
             {/* Depois (base) */}
             <div className="absolute inset-0">
-              <ImagePlaceholder
+              <CoverImage
+                src={ba.srcAfter}
                 alt={ba.altAfter}
                 className="h-full w-full"
+                sizes="100vw"
               />
               <span className="caption absolute right-4 top-4 bg-brand px-3 py-1 text-white">
                 {ba.afterLabel}
@@ -76,9 +78,11 @@ export const BeforeAfter = () => {
               className="absolute inset-0"
               style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
             >
-              <ImagePlaceholder
+              <CoverImage
+                src={ba.srcBefore}
                 alt={ba.altBefore}
-                className="h-full w-full [background-image:linear-gradient(135deg,#d7dde6_0%,#c2cad6_100%)]"
+                className="h-full w-full"
+                sizes="100vw"
               />
               <span className="caption absolute left-4 top-4 bg-ink px-3 py-1 text-white">
                 {ba.beforeLabel}

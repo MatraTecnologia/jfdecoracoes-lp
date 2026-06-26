@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { CoverImage } from "@/components/ui/CoverImage";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { content } from "@/lib/content";
@@ -42,9 +42,11 @@ export const Differentials = () => {
         </div>
 
         <Reveal delay={0.1} className="group">
-          <ImagePlaceholder
+          <CoverImage
+            src={differentials.srcImage}
             alt={differentials.altImage}
             className="aspect-[4/5]"
+            sizes="(min-width: 1024px) 50vw, 100vw"
             zoom
           />
         </Reveal>

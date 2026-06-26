@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { CoverImage } from "@/components/ui/CoverImage";
 import { Reveal } from "@/components/ui/Reveal";
 import { content } from "@/lib/content";
 import { whatsappLink } from "@/lib/site-config";
@@ -10,12 +10,28 @@ type ItemProps = {
   caption: string;
   alt: string;
   ratio: string;
+  src: string;
+  position?: string;
   className?: string;
 };
 
-const PortfolioItem = ({ caption, alt, ratio, className }: ItemProps) => (
+const PortfolioItem = ({
+  caption,
+  alt,
+  ratio,
+  src,
+  position,
+  className,
+}: ItemProps) => (
   <figure className={cn("group", className)}>
-    <ImagePlaceholder alt={alt} className={ratio} zoom />
+    <CoverImage
+      src={src}
+      alt={alt}
+      className={ratio}
+      position={position}
+      sizes="(min-width: 768px) 50vw, 100vw"
+      zoom
+    />
     <figcaption className="mt-4 flex items-center gap-3 border-t border-line pt-3">
       <span className="caption text-brand">{caption}</span>
     </figcaption>
