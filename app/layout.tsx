@@ -51,6 +51,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
+  applicationName: siteConfig.name,
+  category: "construction",
+  appleWebApp: {
+    capable: true,
+    title: siteConfig.shortName,
+    statusBarStyle: "black-translucent",
+  },
+  formatDetection: { telephone: false },
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

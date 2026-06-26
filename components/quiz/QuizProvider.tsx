@@ -16,6 +16,10 @@ type QuizCtx = { open: () => void; close: () => void };
 
 const Ctx = createContext<QuizCtx | null>(null);
 
+/** Abre o quiz sozinho após N ms — uma vez por sessão. */
+const AUTO_OPEN_DELAY = 8000;
+const AUTO_OPEN_KEY = "fortunato:quiz-auto";
+
 /** Abre o quiz a partir de qualquer CTA da página. */
 export const useQuiz = (): QuizCtx => {
   const ctx = useContext(Ctx);
@@ -25,8 +29,23 @@ export const useQuiz = (): QuizCtx => {
 
 export const QuizProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setOpen] = useState(false);
-  const open = useCallback(() => setOpen(true), []);
+  const open = useCallback(() => {
+    setOpen(true);
+    sessionStorage.setItem(AUTO_OPEN_KEY, "1");
+  }, []);
   const close = useCallback(() => setOpen(false), []);
+
+  // Auto-abre uma vez por sessão. Se o visitante já abriu/fechou (chave setada),
+  // não reaparece — pra não virar spam e queimar a conversão.
+  useEffect(() => {
+    if (sessionStorage.getItem(AUTO_OPEN_KEY)) return;
+    const t = setTimeout(() => {
+      if (sessionStorage.getItem(AUTO_OPEN_KEY)) return;
+      setOpen(true);
+      sessionStorage.setItem(AUTO_OPEN_KEY, "1");
+    }, AUTO_OPEN_DELAY);
+    return () => clearTimeout(t);
+  }, []);
 
   // Trava o scroll do body com o modal aberto.
   useEffect(() => {
