@@ -11,6 +11,7 @@ import { Differentials } from "@/components/sections/Differentials";
 import { Process } from "@/components/sections/Process";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Faq } from "@/components/sections/Faq";
+import { Quiz } from "@/components/sections/Quiz";
 import { FinalCta } from "@/components/sections/FinalCta";
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
         <Process />
         <Testimonials />
         <Faq />
+        <Quiz />
         <FinalCta />
       </main>
       <Footer />

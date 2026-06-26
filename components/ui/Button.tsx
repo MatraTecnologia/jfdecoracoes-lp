@@ -1,8 +1,13 @@
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "outline-light" | "whatsapp" | "ghost";
-type Size = "md" | "lg";
+export type Variant =
+  | "primary"
+  | "secondary"
+  | "outline-light"
+  | "whatsapp"
+  | "ghost";
+export type Size = "md" | "lg";
 
 const base =
   "text-button group relative inline-flex items-center justify-center gap-2 rounded-sm uppercase transition-colors duration-300 ease-out select-none";
@@ -27,6 +32,14 @@ const variants: Record<Variant, string> = {
   ghost: "text-ink hover:text-brand px-0",
 };
 
+/** Classes do botão — compartilhadas entre o `<a>` (Button) e o `<button>` que abre o quiz. */
+export const buttonClasses = (
+  variant: Variant = "primary",
+  size: Size = "md",
+  className?: string,
+) =>
+  cn(base, variant !== "ghost" && sizes[size], variants[variant], className);
+
 type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   variant?: Variant;
   size?: Size;
@@ -41,10 +54,7 @@ export const Button = ({
   children,
   ...props
 }: ButtonProps) => (
-  <a
-    className={cn(base, variant !== "ghost" && sizes[size], variants[variant], className)}
-    {...props}
-  >
+  <a className={buttonClasses(variant, size, className)} {...props}>
     {children}
   </a>
 );

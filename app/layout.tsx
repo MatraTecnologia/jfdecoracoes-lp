@@ -4,6 +4,7 @@ import "./globals.css";
 import { siteConfig, tokens } from "@/lib/site-config";
 import { content } from "@/lib/content";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { QuizProvider } from "@/components/quiz/QuizProvider";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -130,7 +131,9 @@ export default function RootLayout({
             __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}
         />
-        <SmoothScroll>{children}</SmoothScroll>
+        <QuizProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+        </QuizProvider>
       </body>
     </html>
   );
