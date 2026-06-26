@@ -2,9 +2,8 @@ import { Check } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CoverImage } from "@/components/ui/CoverImage";
 import { Reveal } from "@/components/ui/Reveal";
-import { Button } from "@/components/ui/Button";
+import { QuizButton } from "@/components/quiz/QuizButton";
 import { content } from "@/lib/content";
-import { whatsappLink } from "@/lib/site-config";
 
 /**
  * Diferenciais (split): texto + lista à esquerda, imagem à direita.
@@ -35,9 +34,9 @@ export const Differentials = () => {
           </ul>
 
           <div className="mt-10">
-            <Button href={whatsappLink()} variant="primary" size="lg">
+            <QuizButton variant="primary" size="lg">
               {content.hero.ctaPrimary}
-            </Button>
+            </QuizButton>
           </div>
         </div>
 

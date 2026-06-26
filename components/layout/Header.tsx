@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { BrandMark } from "@/components/ui/BrandMark";
-import { Button } from "@/components/ui/Button";
-import { nav, whatsappLink } from "@/lib/site-config";
+import { QuizButton } from "@/components/quiz/QuizButton";
+import { nav } from "@/lib/site-config";
 import { content } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -64,9 +64,9 @@ export const Header = () => {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href={whatsappLink()} variant="primary" size="md">
+          <QuizButton variant="primary" size="md">
             {content.hero.ctaPrimary}
-          </Button>
+          </QuizButton>
         </div>
 
         <button
@@ -104,14 +104,14 @@ export const Header = () => {
                 {item.label}
               </a>
             ))}
-            <Button
-              href={whatsappLink()}
+            <QuizButton
               variant="primary"
               size="lg"
               className="mt-6 w-full"
+              onClick={() => setOpen(false)}
             >
               {content.hero.ctaPrimary}
-            </Button>
+            </QuizButton>
           </nav>
         </div>
       )}

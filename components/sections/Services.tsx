@@ -1,9 +1,8 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { Reveal } from "@/components/ui/Reveal";
-import { Button } from "@/components/ui/Button";
+import { QuizButton } from "@/components/quiz/QuizButton";
 import { content } from "@/lib/content";
-import { whatsappLink } from "@/lib/site-config";
 
 /** Serviços: 6 cards (ícone + título + benefício + resultado). */
 export const Services = () => {
@@ -22,9 +21,9 @@ export const Services = () => {
         </div>
 
         <div className="mt-12">
-          <Button href={whatsappLink()} variant="primary" size="lg">
+          <QuizButton variant="primary" size="lg">
             {content.hero.ctaPrimary}
-          </Button>
+          </QuizButton>
         </div>
       </div>
     </section>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { QuizButton } from "@/components/quiz/QuizButton";
 import { SeamLine } from "@/components/ui/SeamLine";
 import { AnimatedText } from "@/components/ui/AnimatedText";
 import { content } from "@/lib/content";
@@ -63,9 +64,9 @@ export const FinalCta = () => {
             <MessageCircle strokeWidth={1.75} className="size-5" aria-hidden />
             {finalCta.ctaWhatsapp}
           </Button>
-          <Button href={whatsappLink()} variant="outline-light" size="lg">
+          <QuizButton variant="outline-light" size="lg">
             {finalCta.ctaQuote}
-          </Button>
+          </QuizButton>
         </div>
 
         <p className="caption mt-10 text-white/55">{finalCta.microcopy}</p>

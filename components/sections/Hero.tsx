@@ -5,10 +5,10 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { QuizButton } from "@/components/quiz/QuizButton";
 import { SeamLine } from "@/components/ui/SeamLine";
 import { AnimatedText } from "@/components/ui/AnimatedText";
 import { content } from "@/lib/content";
-import { whatsappLink } from "@/lib/site-config";
 import { useMounted } from "@/lib/useMounted";
 
 /**
@@ -79,9 +79,9 @@ export const Hero = () => {
           <p className="text-body-lg mt-7 max-w-xl text-white/80">{hero.sub}</p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Button href={whatsappLink()} variant="primary" size="lg">
+            <QuizButton variant="primary" size="lg">
               {hero.ctaPrimary}
-            </Button>
+            </QuizButton>
             <Button href="#portfolio" variant="outline-light" size="lg">
               {hero.ctaSecondary}
             </Button>

@@ -9,6 +9,8 @@ type QuizButtonProps = {
   size?: Size;
   className?: string;
   children: ReactNode;
+  /** Ação extra antes de abrir (ex.: fechar o menu mobile). */
+  onClick?: () => void;
 };
 
 /** CTA que abre o quiz de orçamento (mesmo visual do Button, mas é `<button>`). */
@@ -17,12 +19,16 @@ export const QuizButton = ({
   size = "md",
   className,
   children,
+  onClick,
 }: QuizButtonProps) => {
   const { open } = useQuiz();
   return (
     <button
       type="button"
-      onClick={open}
+      onClick={() => {
+        onClick?.();
+        open();
+      }}
       className={buttonClasses(variant, size, className)}
     >
       {children}
